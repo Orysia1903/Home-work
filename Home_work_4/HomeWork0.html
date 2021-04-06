@@ -1,0 +1,87 @@
+<!-- Напишите регулярные выражения, которые будут выбирать 
+    индекс - 55535 - 5 numbers
+    ip адресс, пример 255.255.255.255
+    цены в долларах - $0.84, $1232.84, $4
+    дата в виде - 30/12/2016 - день, месяц, год
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+ </head>
+ <body>
+    <p id="text">Lorem ipsum dolor sit amet 12/04/2019 consectetur 76845 adipisicing elit. Commodi 343.656.765.876 qui nesciunt in ratione 00000 saepe fuga, dolores exercitationem cupiditate consequuntur 000.000.000.876 molestias nobis illum earum  78345 aliquam, animi unde   777.777.765.876excepturi accusantium quo sit.
+
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo natus blanditiis voluptates iusto, reiciendis accusamus culpa minus quasi perspiciatis pariatur. Adipisci repellat nobis veniam amet in, hic $87.09 iure illum repudiandae.
+        Quo doloribus $87.45 asperiores, nostrum temporibus esse repellendus odio animi in reiciendis! Tempora reiciendis cupiditate vero enim autem. Consequatur ad hic vel unde vero delectus eveniet numquam deserunt odio? Molestias, aut?
+        Temporibus, dolores? Ipsum quo $87.09 reprehenderit ex, necessitatibus ut facere quae. Doloribus, ad aliquam quod placeat debitis excepturi enim nesciunt delectus totam consectetur minus consequatur cum inventore repellendus cumque nulla perspiciatis?
+        Repudiandae, beatae aliquam itaque ducimus fuga praesentium quas ullam vitae quam ratione est error molestiae, necessitatibus autem nesciunt explicabo! Ad cupiditate harum, architecto doloribus eveniet incidunt qui minus labore reprehenderit.
+        Eaque, totam voluptatem. Consequatur veritatis qui corporis $78 optio quae, minima sit, iusto illo adipisci nobis officia deserunt facere earum doloremque reprehenderit ut labore magnam $1 ipsam consectetur. Nihil beatae deleniti ducimus. 27/03/2021
+      
+    </p>
+    <input type="button" value="Data" onclick="Dates()">
+    <input type="button" value="Index" onclick="indexFiveNumbers()">
+    <input type="button" value="IPadress" onclick="IPadress()">
+    <input type="button" value="priceInDollars" onclick="priceInDollars()">
+    <div id="result"></div>
+    
+ 	<script type="text/javascript">
+        var text = document.querySelector('#text').innerHTML,
+            result = document.querySelector('#result');
+
+            function Dates(){
+                var pattern = /\d{1,2}\/\d{1,2}\/\d{4}/g;
+                var res = text.match(pattern);
+
+                if(res.length === 1){
+                    result.innerHTML = `There is a Date in this text ${res}`;
+                } else if(res.length > 1){
+                    result.innerHTML = `There are Dates in this text ${res}`;
+                }else {
+                    result.innerHTML = `There isn\'t a Date in this text`;
+                }
+            }
+
+            function indexFiveNumbers(){
+                var pattern = /\d{5}/g;
+                var res = text.match(pattern);
+
+                if(res.length === 1){
+                    result.innerHTML = `There is a index in this text ${res}`;
+                } else if(res.length > 1){
+                    result.innerHTML = `There are indexes in this text ${res}`;
+                }else {
+                    result.innerHTML = `There isn\'t a Date in this text`;
+                }
+            }
+
+            function IPadress(){
+                var pattern = /\d{3}\.\d{3}\.\d{3}\.\d{3}/g;
+                var res = text.match(pattern);
+
+                if(res.length === 1){
+                    result.innerHTML = `There is a IP adress in this text ${res}`;
+                } else if(res.length > 1){
+                    result.innerHTML = `There are IP adresses in this text ${res}`;
+                }else {
+                    result.innerHTML = `There isn\'t a Date in this text`;
+                }
+            }
+
+            function priceInDollars(){
+                var pattern = /\$\d{1,}(\.\d{1,2})?/g;
+                var res = text.match(pattern);
+
+                if(res.length === 1){
+                    result.innerHTML = `There is a price in dollars in this text ${res}`;
+                } else if(res.length > 1){
+                    result.innerHTML = `There are prices in dollars in this text ${res}`;
+                }else {
+                    result.innerHTML = `There isn\'t a Date in this text`;
+                }
+
+            }
+ 	</script>
+ </body>
+ </html>
