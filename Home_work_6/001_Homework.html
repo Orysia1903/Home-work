@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>HomeWork</title>
+	<style>
+		.container {
+			width: 100vw;
+			height: 100vh;
+		}
+
+		.box {
+			width: 80px;
+			height: 80px;
+			background-color: green;
+			position: absolute;
+			left: 40px;
+			top: 40px;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 
+	1. drag and drop;
+	2. создайте div, при клике на него, div начинает двигаться вправо, при клике на кнопку - останавливается,
+	при попадании div к краю окна, он переходит к началу окна.
+	-->
+	<div class="container">
+		<div class="box"></div>
+	</div>
+	<script>
+		var box = document.querySelector('.box'),
+			container = document.querySelector('.container');
+
+		box.addEventListener('mousedown', moveElement);
+
+		function moveElement(e) {
+
+			container.addEventListener('mousemove', mousesCoordinates);
+
+			function mousesCoordinates(e) {
+				box.style.left = `${e.pageX - box.offsetWidth / 2}px`;
+				box.style.top = `${e.pageY - box.offsetHeight / 2}px`;
+			}
+			
+			box.addEventListener('mouseup', stopMoveElement);
+
+			function stopMoveElement(){
+				container.removeEventListener('mousemove', mousesCoordinates)
+			}
+
+		}
+	</script>
+</body>
+
+</html>

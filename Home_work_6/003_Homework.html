@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            background-color: antiquewhite;
+        }
+        .item {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 20px;
+            position: absolute;
+        }
+        input {
+            display: block;
+            margin: 20px;
+            position: absolute;
+            top: 120px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item"></div>
+        <input type="button" value="Stop item" id="button-to-stop">
+    </div>
+    <script>
+        var container = document.querySelector('.container'),
+            item = document.querySelector('.item'),
+            buttonToStop = document.querySelector('#button-to-stop'),
+            i = 0,
+            screenWidth = container.clientWidth;
+
+        item.addEventListener('click', moveTheItem);
+
+        function moveTheItem(e) {
+            var startMove = setInterval(function () {
+                if (i === screenWidth-item.clientWidth*1.5) {
+                   i=10;
+                }
+                item.style.left = `${++i}px`;
+            }, 5);
+
+            buttonToStop.addEventListener('click', stopItem);
+            function stopItem() {
+                clearInterval(startMove);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
