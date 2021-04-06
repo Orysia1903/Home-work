@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>DOM Methods</h1>
+    <div class="main-block">
+        <div class="main-block_left-block">
+            <ul id="methods"><li class="next">appendChild</li><li class="next">insertBefore</li><li class="next">removeChild</li><li class="next">replaceChild</li><li class="next">createTextNode</li><li class="next">createElement</li></ul>
+        </div>
+        <form action="">
+            <input type="text" id="enterText" name="inputText">
+            <input type="button" value="Choose first item" onclick="chooseFirstItem()">
+            <input type="button" value="Choose last item" onclick="chooseLastItem()">
+            <input type="button" value="Choose next item" onclick="chooseNextItem()">
+            <input type="button" value="Choose previous item" onclick="choosePreviousItem()">
+            <input type="button" value="Add item" onclick="appendItem(this.form)">
+            <input type="button" value="Delete item" onclick="deleteItem()">
+            <input type="button" value="Add item to start" onclick="prependItem(this.form)">
+        </form>
+    </div>
+</body>
+</html>
