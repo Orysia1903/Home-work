@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    <style>
+        #main-div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .textBlock {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 10px;
+            padding: 5px;
+            box-sizing: border-box;
+            border: 1px solid rgb(179, 58, 58);
+            box-shadow: 1px 2px 3px rgb(179, 58, 58);
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+            align-items: center;
+            text-align: justify;
+        }
+        input {
+            display: block;
+            background-color: rgba(179, 58, 58, 0.3);
+            border: 1px solid rgb(179, 58, 58);
+            border-radius: 5px;
+            width: 100px;
+            height: 20px;
+            outline: none;
+            cursor: pointer;
+            transition-duration: 300ms;
+            color: rgb(111, 35, 35);
+            font-weight: 400;
+            font-size: 14px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        input:active {
+            background-color: rgba(179, 58, 58, 0.7);
+            transition-duration: 300ms;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!--
+    1. Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления.
+    Используйте только один обработчик.
+
+    2. Доработайте пример 004_Attr_Tech.html таким образом, чтобы при наведении на span элементы,
+    подсказка сплыва под ними, а не в модальном окне. Используйте addEventListener -->
+    <div id="main-div">
+        <div class="textBlock">
+            <input type="button" value="Delete text" class="deleteText">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero molestias quia perferendis non, nam
+                laboriosam
+                corrupti itaque beatae quis ipsa aut ab officia id reiciendis voluptates delectus, dolores optio ipsam?
+            </p>
+        </div>
+        <div class="textBlock">
+            <input type="button" value="Delete text" class="deleteText">
+            <p>
+                111 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero molestias quia perferendis non, nam
+                laboriosam
+                corrupti itaque beatae quis ipsa aut ab officia id reiciendis voluptates delectus, dolores optio ipsam?
+            </p>
+        </div>
+        <div class="textBlock">
+            <input type="button" value="Delete text" class="deleteText">
+            <p>
+                2222 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero molestias quia perferendis non, nam
+                laboriosam
+                corrupti itaque beatae quis ipsa aut ab officia id reiciendis voluptates delectus, dolores optio ipsam?
+            </p>
+        </div>
+        <div class="textBlock">
+            <input type="button" value="Delete text" class="deleteText">
+            <p>
+                3333 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero molestias quia perferendis non, nam
+                laboriosam
+                corrupti itaque beatae quis ipsa aut ab officia id reiciendis voluptates delectus, dolores optio ipsam?
+            </p>
+        </div>
+        <div class="textBlock">
+            <input type="button" value="Delete text" class="deleteText">
+            <p>
+                444444 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero molestias quia perferendis non, nam
+                laboriosam
+                corrupti itaque beatae quis ipsa aut ab officia id reiciendis voluptates delectus, dolores optio ipsam?
+            </p>
+        </div>
+    </div>
+    <script>
+
+        var mainDdiv = document.querySelector('#main-div');
+
+        mainDdiv.addEventListener('click', deleteText);
+
+        function deleteText(e) {
+            var target = e.target,
+                textBlock = target.parentNode,
+                text = textBlock.children[1];
+                
+                if (target.className === 'deleteText') {
+                    textBlock.remove();
+            } 
+            e.stopPropagation()
+        }
+
+
+    </script>
+
+</body>
+
+</html>

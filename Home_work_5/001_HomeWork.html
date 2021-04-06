@@ -1,0 +1,58 @@
+<!--
+Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт.
+При клике на ссылку див появляется, если повторно нажать ссылку див и текст должны пропасть.
+Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,user-scalable=no">
+        <style>
+            .divWithText{
+                display: none;
+            }
+            .show{
+                display: block;
+            }
+            #link, input{
+                background-color: rgb(164, 221, 221);
+                font-size: 18px;
+                text-decoration: none;
+                padding:7px;
+                border-radius: 5px;
+                color:black;
+            }
+            input{
+                outline: none;
+                box-shadow: none;
+                border-color: rgb(62, 163, 167);
+            }
+            #link:active{
+                color:black;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="#" id="link">Show or hide div</a>
+        <input type="button" id="clearButton" value="Clear handler about text">
+        <div class="divWithText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae corrupti deleniti accusamus odit, mollitia ut ex blanditiis voluptatibus quos cupiditate reiciendis nostrum ipsum tempore officiis saepe inventore incidunt alias. Quae.
+        Ut eos aut excepturi cum qui eligendi tenetur minus nesciunt cupiditate hic, atque modi itaque pariatur nisi iste nemo in aliquid dolorum quisquam illum? Cupiditate iusto officiis reprehenderit quisquam accusantium?
+        Facilis delectus quia obcaecati quasi, tenetur, perferendis reiciendis provident, molestias ducimus quaerat sapiente earum in eveniet. Quae quaerat incidunt beatae delectus, officiis veniam non quibusdam excepturi. Autem porro fugit suscipit.</div>
+        <script>
+            var link = document.querySelector('#link'),
+                clearButton = document.querySelector('#clearButton'),
+                divWithText = document.querySelector('.divWithText');
+
+            link.addEventListener('click', showOrHideText);
+            clearButton.addEventListener('click', clearHandlerAboutText)
+
+            function showOrHideText(){
+                divWithText.classList.toggle('show');
+            }
+
+            function clearHandlerAboutText(){
+                link.removeEventListener('click', showOrHideText)
+            }
+        </script>
+    </body>
+</html>
