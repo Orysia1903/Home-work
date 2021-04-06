@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+
+<body>
+    <!-- Создайте счетчик секунд, который начинает отчет с 1 и заканчивается на 30,
+также добавьте кнопки которые останавливают отчет, и запускают его заново и добавьте кнопку
+обнуляющую отcчет. Также попробуйте изменить код так чтобы отсчет начинался с 30 и заканчивался на 1. -->
+    <input type="button" onclick="getSeconds()" value="Start timer">
+    <input type="button" value="Stop timer" onclick="stopTimer()">
+    <input type="button" value="Continue timer" onclick="continueTimer()">
+    <input type="button" value="Restart timer" onclick="restartTimer()">
+    <input type="button" value="Reset timer" onclick="resetTimer()">
+
+    <p id="seconds"></p>
+    <script>
+        var seconds = document.querySelector('#seconds');
+        var timer;
+        function getSeconds() {
+            var i = 1;
+            timer = setInterval(function () {
+                seconds.innerHTML = (`${i++}`);
+                if (i === 31) {
+                    stopTimer();
+                }
+            }, 1000);
+        }
+
+        // conversely
+        // function getSeconds() {
+        //     var i = 30;
+        //     timer = setInterval(function () {
+        //         seconds.innerHTML = (`${i--}`);
+        //         if (i === 1) {
+        //             stopTimer();
+        //         }
+        //     }, 1000);
+        // }
+
+        function stopTimer() {
+            clearInterval(timer);
+        }
+
+        function restartTimer() {
+            stopTimer();
+            getSeconds();
+        }
+
+        function continueTimer() {
+            stopTimer();
+            var lastSecond = seconds.innerHTML;
+            timer = setInterval(function () {
+                seconds.innerHTML = (`${lastSecond++}`);
+                if (lastSecond === 31) {
+                    stopTimer();
+                }
+            }, 1000);
+        }
+
+        function resetTimer(){
+            stopTimer()
+            seconds.innerHTML = 0;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!-- 
+    Запросите у пользователя ввести какую-то фразу. 
+    Отобразите каждое отдельное слово в виде списка ul li. 
+    Также отобразите первое слово UPPERCASE, а последние 2 с маленькой. 
+    Найдите все буквы "а" их количество в модальное окно. 
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <input type="button" value="display text" onclick="displayText()">
+    <input type="button" value="findA" onclick="regExp()">
+    <ul id="myList"></ul>
+    <script>
+        var myList = document.querySelector('#myList');
+
+        function displayText() {
+            var text = document.querySelector('textarea').value;
+            var arrText = text.split(' ');
+            var firstWord = arrText[0].toUpperCase();
+            var lastWord = arrText[arrText.length - 1].toLowerCase();
+            var beforeLastWord = arrText[arrText.length - 2].toLowerCase();
+            
+            myList.insertAdjacentHTML('afterbegin', `<li>${firstWord}</li>`);
+            
+            var newArray = arrText.slice(1, arrText.length - 2);
+            
+            for (var word of newArray) {
+                myList.insertAdjacentHTML('beforeend', `<li>${word}</li>`);
+            }
+
+            myList.insertAdjacentHTML('beforeend', `<li>${beforeLastWord}</li>`);
+            myList.insertAdjacentHTML('beforeend', `<li>${lastWord}</li>`);
+
+        }
+
+        function regExp() {
+            var patt = new RegExp("a", "g");
+            var res = document.querySelector('textarea').value.match(patt);
+            alert(res.length)
+        }
+
+    </script>
+</body>
+
+</html>
