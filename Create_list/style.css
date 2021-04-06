@@ -1,0 +1,97 @@
+body{
+    background-color:rgba(14, 13, 13, 0.3);
+}
+#message-form{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background-color: rgba(255, 5, 5, 0.3);
+    transform: translateY(-1000px);
+    transition: transform linear 500ms;
+}
+.message-form-visible{
+    transform: translateY(0px) !important;
+}
+[value="Create list item"],
+.edit-item{
+    width: 130px;
+    height: 130px;
+    background-color:black;
+    color:#fff;
+    border-style:none;
+    border-radius: 50%;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+}
+.changeButton{
+    color:rgb(161, 95, 95); 
+    position:absolute; 
+    left:50%; 
+    top:30px; 
+    transform: translateX(-50%);
+}
+form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    left:50%;
+    top:150px;
+    transform: translateX(-50%);
+    padding: 20px;
+    justify-content: space-around;
+}
+form [type="button"]{
+    width: 150px;
+    height:30px;
+    outline: none;
+    border: 1px solid rgb(82, 26, 26); 
+    background-color:transparent;
+    color:rgb(82, 26, 26); 
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 8px;
+}
+form [type="button"]:active{
+    box-shadow: 1px 2px 3px rgb(82, 26, 26); 
+    border: 2px solid rgb(82, 26, 26); 
+}
+textarea {
+    margin: 20px auto;
+    height: 125px;
+    width: 400px;
+    resize: none;
+    outline: none;
+    border: 1px solid rgb(82, 26, 26); 
+    border-radius:8px;
+    padding:10px;
+    color:rgb(82, 26, 26); 
+    font-size: 14px;
+}
+textarea:focus{
+    box-shadow: 1px 2px 3px rgb(82, 26, 26); 
+}
+.delete-item{
+    border-style: none;
+    background-color:transparent;
+    font-weight: 800;
+    color:black
+}
+.delete-item:hover{
+    color:red;
+}
+.change-item{
+    background-image: url(https://cdn4.iconfinder.com/data/icons/software-menu-icons/256/SoftwareIcons-68-512.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-style:none;
+    background-color: transparent;
+}
+.list{
+    list-style-type: none;
+}
