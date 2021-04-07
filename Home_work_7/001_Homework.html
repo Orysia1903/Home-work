@@ -1,0 +1,63 @@
+<!-- Создайте функцию, которая возвращает день недели для даты.
+День нужно возвратить в формате - понедельник имеет номер 1, вторник номер 2, …, воскресенье - номер 7. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+
+<body>
+    <input type="text" id="date">
+    <input type="button" value="What day is today?" id="sayDay">
+    <div id="weeksDay"></div>
+
+    <script>
+        window.addEventListener('load', sayWeekDay)
+        function sayWeekDay() {
+            var date = document.querySelector('#date'),
+                weekDay = document.querySelector('#weeksDay'),
+                sayDay = document.querySelector('#sayDay');
+
+            sayDay.addEventListener('click', weekday);
+
+            function weekday() {
+                var pattern = /\d{1,2}\/\d{1,2}\/\d{4}\s\d{2}\:\d{2}\:\d{2}/,
+                    testDate = pattern.test(date.value),
+                    transformInDate = new Date(`${date.value}`),
+                    getNameWeekday = transformInDate.getDay();
+
+                    switch (getNameWeekday) {
+                        case 0:
+                            getNameWeekday = 'Sunday';
+                            break;
+                        case 1:
+                            getNameWeekday = 'Monday';
+                            break;
+                        case 2:
+                            getNameWeekday = 'Tuesday';
+                            break;
+                        case 3:
+                            getNameWeekday = 'Wednesday';
+                            break;
+                        case 4:
+                            getNameWeekday = 'Thursday';
+                            break;
+                        case 5:
+                            getNameWeekday = 'Friday';
+                            break;
+                        case 5:
+                            getNameWeekday = 'Saturday';
+                            break;
+                    }
+
+                if (testDate) {
+                    weekDay.innerHTML = `Today is: ${getNameWeekday}`;
+                } 
+            }
+        }
+    </script>
+</body>
+
+</html>

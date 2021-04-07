@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>003_Homework</title>
+</head>
+<body>
+    <script>
+        class Nurse{
+            constructor(cure){
+                this.cure = cure
+            }
+            showInfo(){
+                console.log(`-Can you cure? - ${this.cure}`)
+            }
+        }
+
+        class Doctor extends Nurse{
+            constructor(cure, eat, drink, walk){
+                super(cure),
+                this.eat = eat,
+                this.drink = drink,
+                this.walk = walk
+            }
+            showInfo(){
+                console.log(`-What do you like drinking and eating? \n-I drink ${this.drink} and eat ${this.eat}\n-Can you cure? - ${this.cure} \n-Do you like walking with your friends? \n- ${this.walk}`)
+            }
+        }
+       
+        class Dentist extends Doctor{
+            showInfo(){
+                console.log(`-What do you like drinking and eating? \n-I drink ${this.drink} and eat ${this.eat}\n-What to you cure?\n -I cure ${this.cure} \n-Do you like walking with your friends? \n- ${this.walk}`)
+            }
+        }
+
+        const nurse = new Nurse('Yes, but not very well');
+        const nutritionist = new Doctor('Of course, very well', 'burgers', 'cola', 'Yes');
+        const dentist = new Dentist('teeth', 'burgers', 'cola', 'Yes, of course');
+
+        nurse.showInfo();
+        nutritionist.showInfo();
+        dentist.showInfo();
+
+    </script>
+</body>
+</html>

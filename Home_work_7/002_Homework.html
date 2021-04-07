@@ -1,0 +1,45 @@
+<!-- Реализуйте последние 2 слайда в презентации с помощью пройденого на уроке материала -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    
+</head>
+<body>
+    <script>
+        class Man{
+            constructor(eat, walk, drink){
+                this.eat = eat,
+                this.walk = walk,
+                this.drink = drink
+            }
+            
+        }
+
+        class Solder extends Man{
+            constructor(eat, walk, drink, shoot){
+                super(eat, walk, drink)
+                this.shoot = shoot
+            }
+            Shoot(){
+                console.log(`Soldier eat ${this.eat}, drink: ${this.drink}, walk with ${this.walk} and shoot ${this.shoot}`);
+            }
+        }
+
+        class Doctor extends Man{
+            constructor(eat, walk, drink, cure){
+                super(eat, walk, drink)
+                this.cure = cure
+            }
+            Cure(){
+                console.log(`Doctor eat ${this.eat}, drink: ${this.drink}, walk with ${this.walk} and cure ${this.cure}`);
+            }
+        }
+        const firstSoldier = new Solder('bread', 'friends', 'juice', 'with a machine gun');
+        const dentist = new Doctor ('meat', 'familly', 'water', 'teeth');
+        firstSoldier.Shoot();
+        dentist.Cure();
+    </script>
+</body>
+</html>
