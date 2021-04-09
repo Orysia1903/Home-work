@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    <style>
+        input{
+            display:block
+        }
+        #logged,
+        #exit{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="login">
+    <input type="button" value="Log in" id="logIn">
+
+    <div id="logged"></div>
+    <input type="button" value="Exit" id="exit">
+    <script>
+        window.addEventListener('load', init)
+
+        function init(){
+            var login = document.querySelector('#login'),
+                logIn = document.querySelector('#logIn'),
+                logged = document.querySelector('#logged'),
+                exit = document.querySelector('#exit');
+            
+            logIn.addEventListener('click', logPerson)
+
+            function logPerson(){
+
+                document.cookie = "userName=" + encodeURIComponent(login.value);
+                window.localStorage.userName = login.value;
+                if(login.value != ''){
+                    login.style.display = "none";
+                    logIn.style.display = "none";
+                    logged.style.display = 'block';
+                    exit.style.display = 'inline-block';
+
+                    logged.innerHTML = `User ${decodeURIComponent(login.value)} is logged`;
+                    login.value = '';
+                }
+            }
+
+            exit.addEventListener('click', exitFromPage)
+
+            function exitFromPage(){
+                login.style.display = "block";
+                logIn.style.display = "block";
+                logged.style.display = 'none';
+                exit.style.display = 'none';
+            }
+
+        }
+    </script>
+
+    <!-- Создайте страницу которая запрашивает имя пользователя, если пользователь вводит "Admin" либо "admin" он попадает на страницу,
+    которая оповещает его о том что " Пользоваетль Admin(не статическая строка, а данные что ввел пользователь) вошел в систему"
+    а рядом разместите кнопку "Выход" которая вернет пользователя к модальному окну ввода логина. Реализуйте код как для куки так и для localstorage. -->
+
+
+</body>
+</html>
